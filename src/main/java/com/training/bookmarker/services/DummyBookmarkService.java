@@ -45,8 +45,10 @@ public class DummyBookmarkService implements BookmarksService {
 
   @Override
   public Bookmark delete(Bookmark bookmark) {
-    this.bookmarks.remove(bookmark.getId().intValue());
+    this.bookmarks.remove(bookmark);
     return bookmark;
   }
+
+
 
 }

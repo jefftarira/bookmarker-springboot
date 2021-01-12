@@ -5,10 +5,7 @@ import com.training.bookmarker.services.BookmarksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +31,19 @@ public class BookmarksController {
     Bookmark bookmark = this.bookmarksService.get(id);
     return new ResponseEntity<>(bookmark, HttpStatus.OK);
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Bookmark> delete(@PathVariable long id) {
+    Bookmark deleteBookmark = this.bookmarksService.delete(this.bookmarksService.get(id));
+    return new ResponseEntity<>(deleteBookmark, HttpStatus.OK);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Bookmark> update(@PathVariable long id,
+                                         @RequestBody Bookmark bookmark) {
+    Bookmark updateBookmark = this.bookmarksService.update(bookmark);
+    return new ResponseEntity<>(updateBookmark, HttpStatus.OK);
+  }
+
 
 }
