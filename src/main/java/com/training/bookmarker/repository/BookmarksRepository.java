@@ -1,10 +1,10 @@
-package com.training.bookmarker.services;
+package com.training.bookmarker.repository;
 
 import com.training.bookmarker.models.Bookmark;
 
 import java.util.List;
 
-public interface BookmarksService {
+public interface BookmarksRepository {
 
   List<Bookmark> getAll();
 

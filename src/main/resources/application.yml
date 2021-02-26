@@ -1,0 +1,19 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+  port: 80
+
+spring:
+  datasource:
+    username: user
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/bookmarker
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        format_sql: true
+    show-sql: true
