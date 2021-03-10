@@ -1,7 +1,8 @@
 server:
   error:
     include-message: always
-    include-binding-errors: never
+    include-binding-errors: always
+    include-stacktrace: never
   port: 80
   servlet:
     context-path: /bookmarker/api

@@ -25,10 +25,4 @@ public class Bookmark {
   private String url;
   private LocalDateTime created;
   private LocalDateTime modified;
-
-  public Bookmark(String title, String description, String url) {
-    this.title = title;
-    this.description = description;
-    this.url = url;
-  }
 }

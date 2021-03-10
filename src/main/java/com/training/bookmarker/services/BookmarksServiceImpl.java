@@ -3,7 +3,6 @@ package com.training.bookmarker.services;
 import com.training.bookmarker.entities.Bookmark;
 import com.training.bookmarker.repository.BookmarksRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
