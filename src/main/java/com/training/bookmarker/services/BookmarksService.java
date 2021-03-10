@@ -1,6 +1,6 @@
 package com.training.bookmarker.services;
 
-import com.training.bookmarker.models.Bookmark;
+import com.training.bookmarker.entities.Bookmark;
 
 import java.util.List;
 

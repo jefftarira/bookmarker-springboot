@@ -1,7 +1,8 @@
 package com.training.bookmarker.controllers;
 
-import com.training.bookmarker.models.Bookmark;
+import com.training.bookmarker.entities.Bookmark;
 import com.training.bookmarker.services.BookmarksService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bookmarks")
+@AllArgsConstructor
 public class BookmarksController {
 
-  private BookmarksService bookmarksService;
-
-  @Autowired
-  public void setBookmarkService(BookmarksService bookmarksService) {
-    this.bookmarksService = bookmarksService;
-  }
+  private final BookmarksService bookmarksService;
 
   @GetMapping
   public ResponseEntity<List<Bookmark>> getAll() {
@@ -30,6 +27,12 @@ public class BookmarksController {
   public ResponseEntity<Bookmark> getSingle(@PathVariable long id) {
     Bookmark bookmark = bookmarksService.get(id);
     return new ResponseEntity<>(bookmark, HttpStatus.OK);
+  }
+
+  @PostMapping
+  public ResponseEntity<Bookmark> create(@RequestBody Bookmark bookmark) {
+    Bookmark bookmarkSaved = bookmarksService.create(bookmark);
+    return new ResponseEntity<>(bookmarkSaved, HttpStatus.CREATED);
   }
 
   @DeleteMapping("/{id}")

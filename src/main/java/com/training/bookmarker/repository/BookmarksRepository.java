@@ -1,19 +1,20 @@
 package com.training.bookmarker.repository;
 
-import com.training.bookmarker.models.Bookmark;
+import com.training.bookmarker.entities.Bookmark;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface BookmarksRepository {
+@Repository
+public interface BookmarksRepository extends JpaRepository<Bookmark, Long> {
 
-  List<Bookmark> getAll();
+  @Override
+  List<Bookmark> findAll();
 
-  Bookmark get(Long id);
+  @Override
+  Optional<Bookmark> findById(Long id);
 
-  Bookmark create(Bookmark bookmark);
-
-  Bookmark update(Bookmark bookmark);
-
-  Bookmark delete(Bookmark bookmark);
 
 }
